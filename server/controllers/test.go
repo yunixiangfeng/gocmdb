@@ -1,9 +1,8 @@
 package controllers
 
 import (
+	"gocmdb/server/controllers/auth"
 	"time"
-
-	"github.com/yunixiangfeng/gocmdb/server/controllers/auth"
 )
 
 type TestController struct {

@@ -1,30 +1,31 @@
 package models
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/astaxie/beego/orm"
 
-	"github.com/yunixiangfeng/gocmdb/server/utils"
+	"gocmdb/server/utils"
 )
 
 type User struct {
-	Id          int        `orm:"column(id);"`
-	Name        string     `orm:"column(name);size(32);"`
-	Password    string     `orm:"column(password);size(1024);"`
-	Gender      int        `orm:"column(gender);default(0);"`
-	Birthday    *time.Time `orm:"column(birthday);null;default(null);"`
-	Tel         string     `orm:"column(tel);size(1024);"`
-	Email       string     `orm:"column(email);size(1024);"`
-	Addr        string     `orm:"column(addr);size(1024);"`
-	Remark      string     `orm:"column(remark);size(1024);"`
-	IsSuperman  bool       `orm:"column(is_superman);default(false);"`
-	Status      int        `orm:"column(status);"`
-	CreatedTime *time.Time `orm:"column(created_time);auto_now_add;"`
-	UpdatedTime *time.Time `orm:"column(update_time);auto_now;"`
-	DeletedTime *time.Time `orm:"column(deleted_time);null;default(null);"`
+	Id          int        `orm:"column(id);" json:"id"`
+	Name        string     `orm:"column(name);size(32);" json:"name"`
+	Password    string     `orm:"column(password);size(1024);" json:"-"`
+	Gender      int        `orm:"column(gender);default(0);" json:"gender"`
+	Birthday    *time.Time `orm:"column(birthday);null;default(null);" json:"birthday"`
+	Tel         string     `orm:"column(tel);size(1024);" json:"tel"`
+	Email       string     `orm:"column(email);size(1024);" json:"email"`
+	Addr        string     `orm:"column(addr);size(1024);" json:"addr"`
+	Remark      string     `orm:"column(remark);size(1024);" json:"remark"`
+	IsSuperman  bool       `orm:"column(is_superman);default(false);" json:"is_superman"`
+	Status      int        `orm:"column(status);" json:"status"`
+	CreatedTime *time.Time `orm:"column(created_time);auto_now_add;" json:"created_time"`
+	UpdatedTime *time.Time `orm:"column(update_time);auto_now;" json:"updated_time"`
+	DeletedTime *time.Time `orm:"column(deleted_time);null;default(null);" json:"-"`
 
-	Token *Token `orm:"reverse(one);"`
+	Token *Token `orm:"reverse(one);" json:"token"`
 }
 
 func (u *User) SetPassword(password string) {
@@ -48,8 +49,10 @@ func NewUserManager() *UserManager {
 
 func (m *UserManager) GetById(id int) *User {
 	user := &User{}
-	err := orm.NewOrm().QueryTable(user).Filter("Id__exact", id).Filter("DeletedTime__isnull", true).One(user)
+	ormer := orm.NewOrm()
+	err := ormer.QueryTable(user).Filter("Id__exact", id).Filter("DeletedTime__isnull", true).One(user)
 	if err == nil {
+		ormer.LoadRelated(user, "Token")
 		return user
 	}
 	return nil
@@ -63,6 +66,92 @@ func (m *UserManager) GetByName(name string) *User {
 	}
 
 	return nil
+}
+
+func (m *UserManager) Query(q string, start int64, length int) ([]*User, int64, int64) {
+	ormer := orm.NewOrm()
+	queryset := ormer.QueryTable(&User{})
+	condition := orm.NewCondition()
+
+	condition = condition.And("deleted_time__isnull", true)
+
+	total, _ := queryset.SetCond(condition).Count()
+
+	qtotal := total
+	if q != "" {
+		query := orm.NewCondition()
+		query = query.Or("name__icontains", q)
+		query = query.Or("tel__icontains", q)
+		query = query.Or("addr__icontains", q)
+		query = query.Or("email__icontains", q)
+		query = query.Or("remark__icontains", q)
+		condition = condition.AndCond(query)
+
+		qtotal, _ = queryset.SetCond(condition).Count()
+	}
+	var users []*User
+	queryset.SetCond(condition).Limit(length).Offset(start).All(&users)
+	return users, total, qtotal
+}
+
+func (m *UserManager) DeleteById(pk int) error {
+	orm.NewOrm().QueryTable(&User{}).Filter("id__exact", pk).Update(orm.Params{"deleted_time": time.Now()})
+	return nil
+}
+
+func (m *UserManager) SetStatusById(pk int, status int) error {
+	orm.NewOrm().QueryTable(&User{}).Filter("id__exact", pk).Update(orm.Params{"status": status})
+	return nil
+}
+
+func (m *UserManager) Create(name, password string, gender int, birthday *time.Time, tel, email, addr, remark string) (*User, error) {
+	ormer := orm.NewOrm()
+	user := &User{
+		Name:     name,
+		Gender:   gender,
+		Birthday: birthday,
+		Tel:      tel,
+		Email:    email,
+		Addr:     addr,
+		Remark:   remark,
+	}
+	user.SetPassword(password)
+	if _, err := ormer.Insert(user); err != nil {
+		return nil, err
+	}
+	return user, nil
+}
+
+func (m *UserManager) Modify(id int, name string, gender int, birthday *time.Time, tel, email, addr, remark string) (*User, error) {
+	ormer := orm.NewOrm()
+	if user := m.GetById(id); user != nil {
+		user.Name = name
+		user.Gender = gender
+		user.Birthday = birthday
+		user.Tel = tel
+		user.Email = email
+		user.Addr = addr
+		user.Remark = remark
+		if _, err := ormer.Update(user); err != nil {
+			return nil, err
+		}
+		return user, nil
+	}
+
+	return nil, fmt.Errorf("操作对象不存在")
+}
+
+func (m *UserManager) UpdatePassword(id int, password string) error {
+	ormer := orm.NewOrm()
+	if user := m.GetById(id); user != nil {
+		user.SetPassword(password)
+		if _, err := ormer.Update(user, "Password"); err != nil {
+			return err
+		}
+		return nil
+	}
+
+	return fmt.Errorf("操作对象不存在")
 }
 
 type Token struct {
@@ -89,6 +178,21 @@ func (m *TokenManager) GetByKey(accessKey, secrectKey string) *Token {
 		return token
 	}
 	return nil
+}
+
+func (m *TokenManager) GenerateByUser(user *User) *Token {
+	ormer := orm.NewOrm()
+	token := &Token{User: user}
+	if ormer.Read(token, "User") == orm.ErrNoRows {
+		token.AccessKey = utils.RandString(32)
+		token.SecrectKey = utils.RandString(32)
+		ormer.Insert(token)
+	} else {
+		token.AccessKey = utils.RandString(32)
+		token.SecrectKey = utils.RandString(32)
+		ormer.Update(token)
+	}
+	return token
 }
 
 var DefaultUserManager = NewUserManager()

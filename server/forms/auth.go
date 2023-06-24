@@ -3,8 +3,9 @@ package forms
 import (
 	"strings"
 
+	"gocmdb/server/models"
+
 	"github.com/astaxie/beego/validation"
-	"github.com/yunixiangfeng/gocmdb/server/models"
 )
 
 type LoginForm struct {

@@ -5,14 +5,13 @@ import (
 	"fmt"
 	"os"
 
+	"gocmdb/server/models"
+	_ "gocmdb/server/routers"
+	"gocmdb/server/utils"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-
-	"github.com/yunixiangfeng/gocmdb/server/models"
-	"github.com/yunixiangfeng/gocmdb/server/utils"
-
-	_ "github.com/yunixiangfeng/gocmdb/server/routers"
 )
 
 func main() {

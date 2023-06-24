@@ -1,0 +1,267 @@
+2023/06/24 14:46:41.298 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:55:44.157 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:56:04.666 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:57:37.592 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:58:18.100 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:58:30.455 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 14:58:30.456 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 14:59:02.042 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     7.5672ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 14:59:25.039 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.6261ms| nomatch|[44m GET     [0m /  
+2023/06/24 14:59:25.953 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0951ms| nomatch|[44m GET     [0m /  
+2023/06/24 14:59:26.610 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      997.2µs| nomatch|[44m GET     [0m /  
+2023/06/24 14:59:39.818 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.5403ms| nomatch|[44m GET     [0m /  
+2023/06/24 15:00:58.050 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:00:58.051 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:00:58.052 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:02:05.031 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      988.9µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:02:06.592 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      759.1µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:02:08.675 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.3674ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:02:09.318 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.3347ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:02:11.297 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.2673ms| nomatch|[44m GET     [0m /test/
+2023/06/24 15:02:12.735 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.7145ms| nomatch|[44m GET     [0m /test/
+2023/06/24 15:02:13.638 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      974.9µs| nomatch|[44m GET     [0m /test/
+2023/06/24 15:03:06.347 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:03:07.482 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:03:08.802 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     3.9887ms| nomatch|[44m GET     [0m /test/
+2023/06/24 15:03:08.813 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:03:08.814 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:03:14.649 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.4702ms| nomatch|[44m GET     [0m /test/
+2023/06/24 15:03:18.367 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0538ms| nomatch|[44m GET     [0m /  
+2023/06/24 15:03:20.097 [D] [server.go:2916]  |            ::1|[43m 404 [0m|        811µs| nomatch|[44m GET     [0m /  
+2023/06/24 15:03:26.018 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.1129ms| nomatch|[44m GET     [0m /  
+2023/06/24 15:04:25.780 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:04:25.787 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:04:25.788 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:04:55.920 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:05:34.171 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.2121ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:36.854 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      1.335ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:37.553 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      1.931ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:38.163 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     2.3345ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:38.724 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.7755ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:39.248 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      883.6µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:39.882 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      997.8µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:05:41.705 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      465.3µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:18.486 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:06:18.504 [D] [server.go:2916]  |            ::1|[43m 404 [0m|        518µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:20.234 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.3796ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:20.840 [D] [server.go:2916]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:21.073 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      283.7µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:21.409 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      343.6µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:21.657 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      344.7µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:21.873 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      397.2µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:22.041 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0004ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:22.219 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      886.8µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:22.425 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      166.5µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:06:23.266 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0557ms| nomatch|[44m GET     [0m /  
+2023/06/24 15:06:24.577 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      212.7µs| nomatch|[44m GET     [0m /  
+2023/06/24 15:06:29.483 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.6151ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:30.504 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:09:37.282 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      824.6µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:38.033 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      272.5µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:38.240 [D] [server.go:2916]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:38.416 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      490.3µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:38.664 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      203.4µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:38.896 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      403.3µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:39.073 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      997.1µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:39.240 [D] [server.go:2916]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:39.416 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      252.4µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:09:39.615 [D] [server.go:2916]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:13:39.348 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:13:40.050 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:13:40.154 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:13:40.154 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:13:47.758 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0461ms| nomatch|[44m GET     [0m /test/test
+2023/06/24 15:13:53.300 [D] [server.go:2916]  |            ::1|[43m 404 [0m|           0s| nomatch|[44m GET     [0m /  
+2023/06/24 15:13:54.393 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      995.7µs| nomatch|[44m GET     [0m /  
+2023/06/24 15:24:59.036 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:24:59.105 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:24:59.106 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:25:00.557 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:25:00.558 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 15:25:01.245 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:46:42.830 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 15:46:42.832 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 16:09:23.751 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:09:23.957 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:09:23.958 [C] [asm_amd64.s:1571]  ListenAndServe:  listen tcp :8888: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2023/06/24 16:28:39.889 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:28:46.173 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.1279ms| nomatch|[44m GET     [0m /  
+2023/06/24 16:28:46.972 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.0796ms| nomatch|[44m GET     [0m /  
+2023/06/24 16:28:51.968 [C] [panic.go:838]  the request url is  /auth/login
+2023/06/24 16:28:51.968 [C] [panic.go:838]  Handler crashed with error can't find templatefile in the path:views/auth/login.html
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/panic.go:838
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/template.go:75
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:306
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:257
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:237
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:909
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:2916
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:1966
+2023/06/24 16:28:51.968 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/asm_amd64.s:1571
+2023/06/24 16:28:51.968 [server.go:3195]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2023/06/24 16:30:41.366 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.8293ms|   match|[44m GET     [0m /auth/login   r:/auth/login/*
+2023/06/24 16:33:29.344 [D] [server.go:2916]  |            ::1|[47m 302 [0m|     9.5708ms|   match|[46m POST    [0m /auth/login   r:/auth/login/*
+2023/06/24 16:33:29.350 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     3.4804ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:39:20.059 [D] [server.go:2916]  |            ::1|[47m 302 [0m|      2.835ms|   match|[46m POST    [0m /auth/login   r:/auth/login/*
+2023/06/24 16:39:20.064 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.9578ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:40:20.105 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:40:20.542 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:45:08.486 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:46:03.200 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:46:13.112 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     3.3078ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:13.822 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.3181ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:14.035 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.9815ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:14.223 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.8049ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:14.423 [D] [server.go:2916]  |            ::1|[42m 200 [0m|      2.751ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:14.596 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.9934ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:14.805 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.7667ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:15.028 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.2285ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:15.224 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.7856ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:15.596 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.1633ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:15.805 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.9954ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:16.076 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     1.7559ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:58.093 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.4009ms|   match|[44m GET     [0m /test/test   r:/test/test/*
+2023/06/24 16:46:59.953 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:47:00.114 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      529.3µs| nomatch|[44m GET     [0m /test/test
+2023/06/24 16:47:03.183 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.5664ms| nomatch|[44m GET     [0m /  
+2023/06/24 16:54:17.570 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 16:58:25.070 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      962.3µs| nomatch|[44m GET     [0m /  
+2023/06/24 16:58:25.706 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      849.2µs| nomatch|[44m GET     [0m /  
+2023/06/24 16:58:26.099 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      997.6µs| nomatch|[44m GET     [0m /  
+2023/06/24 16:58:26.457 [D] [server.go:2916]  |            ::1|[43m 404 [0m|      997.3µs| nomatch|[44m GET     [0m /  
+2023/06/24 17:01:48.745 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:03:21.079 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:04:04.599 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:06:18.013 [D] [server.go:2916]  |            ::1|[43m 404 [0m|     1.1475ms| nomatch|[44m GET     [0m /  
+2023/06/24 17:06:30.205 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    51.8554ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:06:36.206 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    39.7685ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:06:44.693 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:06:46.307 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:07:22.536 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    44.8792ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:07:22.691 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    40.8395ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:19:55.446 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:19:57.893 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    44.5676ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:19:58.121 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    41.3667ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:20:02.438 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     40.169ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:20:02.585 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    41.1434ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:20:06.628 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    49.1555ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:02.981 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    36.4751ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:03.261 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    40.6701ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:18.480 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     38.222ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:18.662 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    42.4526ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:24.858 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    38.0981ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:25.000 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    43.2706ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:27.284 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    41.7531ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:27.423 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    36.4652ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:29.979 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    40.6851ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:21:30.125 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    44.0288ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:22:46.341 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:22:47.327 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:22:53.240 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:22:54.052 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    43.3692ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:22:54.167 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.3927ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:23:40.986 [C] [panic.go:838]  the request url is  /user/password
+2023/06/24 17:23:40.986 [C] [panic.go:838]  Handler crashed with error can't find templatefile in the path:views/user/password.html
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/panic.go:838
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/template.go:75
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:306
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:257
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:237
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:909
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:2916
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:1966
+2023/06/24 17:23:40.986 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/asm_amd64.s:1571
+2023/06/24 17:23:40.986 [server.go:3195]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2023/06/24 17:23:45.044 [C] [panic.go:838]  the request url is  /user/modify
+2023/06/24 17:23:45.044 [C] [panic.go:838]  Handler crashed with error can't find templatefile in the path:views/user/modify.html
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/panic.go:838
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/template.go:75
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:306
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:257
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/controller.go:237
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Workspace/Go/pkg/mod/github.com/astaxie/beego@v1.12.3/router.go:909
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:2916
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Program Files/GO/src/net/http/server.go:1966
+2023/06/24 17:23:45.044 [C] [panic.go:838]  D:/Program Files/GO/src/runtime/asm_amd64.s:1571
+2023/06/24 17:23:45.044 [server.go:3195]  [HTTP] http: superfluous response.WriteHeader call from github.com/astaxie/beego/context.(*Response).WriteHeader (context.go:230)
+2023/06/24 17:23:54.036 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    37.4898ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:23:54.281 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.2644ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:23:59.587 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    41.2106ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:23:59.726 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     7.3865ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:24:58.580 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    44.6521ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:24:58.698 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.3548ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:25:00.461 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     3.9687ms|   match|[44m GET     [0m /user/modify   r:/user/modify/*
+2023/06/24 17:25:21.119 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:25:22.256 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:25:23.282 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:25:24.594 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:25:25.689 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:27:12.295 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:27:13.569 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:27:49.277 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:27:55.320 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:28:35.385 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    39.9843ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:28:35.577 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.6825ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:28:37.645 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.6108ms|   match|[44m GET     [0m /token/generate   r:/token/generate/*
+2023/06/24 17:30:47.723 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.3198ms|   match|[44m GET     [0m /token/generate   r:/token/generate/*
+2023/06/24 17:39:51.225 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:39:52.049 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:41:22.502 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 17:41:30.933 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    53.6075ms|   match|[44m GET     [0m /userpage/index   r:/userpage/index/*
+2023/06/24 17:41:31.242 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     8.5742ms|   match|[44m GET     [0m /user/list   r:/user/list/*
+2023/06/24 17:41:35.718 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    70.2964ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 17:41:36.712 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    68.2761ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 17:41:44.354 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    71.3088ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 17:41:44.515 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    68.0458ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 17:41:48.264 [D] [server.go:2916]  |            ::1|[42m 200 [0m|   744.3084ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 17:41:48.426 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    71.8624ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:10:35.974 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    82.3118ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:10:37.306 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    75.4311ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:10:40.167 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    81.1445ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:10:40.340 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    67.3681ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:11:23.903 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 18:11:29.625 [D] [server.go:2916]  |            ::1|[42m 200 [0m|   106.8622ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:11:29.741 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.4529ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:11:32.826 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    80.9466ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:11:32.934 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     8.6135ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:11:36.246 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    87.7154ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:11:36.587 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.2373ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:11:37.795 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     80.296ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:11:37.917 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.5028ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:11:39.778 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    78.6678ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:11:39.876 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.0855ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:11:41.011 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    79.8078ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:11:41.106 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.4544ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:11:44.428 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    80.4101ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:11:46.687 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    2.165239s|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:11:48.420 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    82.0821ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:11:48.524 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     2.5855ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:12:32.360 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    86.5746ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:12:32.469 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.0683ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:12:47.981 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    81.9811ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:12:48.105 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     3.6708ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:19:41.584 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 18:23:19.022 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 18:54:22.639 [I] [asm_amd64.s:1571]  http server Running on http://:8888
+2023/06/24 18:54:35.083 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    81.8947ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:35.268 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.5672ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:35.982 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    61.8664ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:36.092 [D] [server.go:2916]  |            ::1|[42m 200 [0m|      3.372ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:36.512 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    64.4079ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:36.597 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.7678ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:36.735 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    63.4061ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:36.816 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.5046ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:36.945 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     63.561ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:37.220 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.3632ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:38.600 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    62.7446ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:38.689 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.4891ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:43.047 [D] [server.go:2916]  |            ::1|[42m 200 [0m|   105.3661ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:54:43.152 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.2154ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:54:44.883 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    78.0843ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:45.031 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     6.6178ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:46.406 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    87.9935ms|   match|[44m GET     [0m /cloudplatformpage/index   r:/cloudplatformpage/index/*
+2023/06/24 18:54:46.498 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.5219ms|   match|[44m GET     [0m /cloudplatform/list   r:/cloudplatform/list/*
+2023/06/24 18:54:47.717 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    67.0881ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:47.821 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     5.3158ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
+2023/06/24 18:54:51.183 [D] [server.go:2916]  |            ::1|[42m 200 [0m|    61.8094ms|   match|[44m GET     [0m /virtualmachinepage/index   r:/virtualmachinepage/index/*
+2023/06/24 18:54:51.266 [D] [server.go:2916]  |            ::1|[42m 200 [0m|     4.8759ms|   match|[44m GET     [0m /virtualmachine/list   r:/virtualmachine/list/*
