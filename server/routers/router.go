@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 
 	"gocmdb/server/controllers"
+	v1 "gocmdb/server/controllers/api/v1"
 	"gocmdb/server/controllers/auth"
 )
 
@@ -28,4 +29,11 @@ func init() {
 	beego.AutoRouter(&controllers.VirtualMachinePageController{})
 	// 云主机
 	beego.AutoRouter(&controllers.VirtualMachineController{})
+
+	v1Namespace := beego.NewNamespace("/v1",
+		beego.NSRouter("api/heartbeat/:uuid/", &v1.APIController{}, "*:Heartbeat"),
+		beego.NSRouter("api/register/:uuid/", &v1.APIController{}, "*:Register"),
+		beego.NSRouter("api/log/:uuid/", &v1.APIController{}, "*:Log"),
+	)
+	beego.AddNamespace(v1Namespace)
 }
