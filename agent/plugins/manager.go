@@ -2,9 +2,9 @@ package plugins
 
 import (
 	"errors"
-	"gocmdb/agent/config"
 	"time"
 
+	"gocmdb/agent/config"
 	"gocmdb/agent/entity"
 
 	"github.com/sirupsen/logrus"
@@ -40,12 +40,12 @@ func (m *Manager) RegisterTask(p TaskPlugin) {
 }
 
 func (m *Manager) Init(conf *config.Config) {
+	m.Conf = conf
 	for name, plugin := range m.Cycles {
 		plugin.Init(conf)
 		logrus.WithFields(logrus.Fields{
 			"Name": name,
 		}).Info("初始化插件")
-
 	}
 	for name, plugin := range m.Tasks {
 		plugin.Init(conf)
@@ -64,18 +64,21 @@ func (m *Manager) StartCycle() {
 	for now := range time.Tick(time.Second) {
 		for name, plugin := range m.Cycles {
 			if now.After(plugin.NextTime()) {
-				if evt, err := plugin.Call(); err == nil {
-					logrus.WithFields(logrus.Fields{
-						"Name":   name,
-						"Result": evt,
-					}).Debug("插件执行")
-					plugin.Pipline() <- evt
-				} else {
-					logrus.WithFields(logrus.Fields{
-						"Name":  name,
-						"error": err,
-					}).Debug("插件执行失败")
-				}
+				go func(pluginName string, plugin CyclePlugin) {
+					if evt, err := plugin.Call(); err == nil {
+						logrus.WithFields(logrus.Fields{
+							"Name":   pluginName,
+							"Result": evt,
+						}).Debug("插件执行")
+						plugin.Pipline() <- evt
+					} else {
+						logrus.WithFields(logrus.Fields{
+							"Name":  pluginName,
+							"error": err,
+						}).Debug("插件执行失败")
+					}
+				}(name, plugin)
+
 			}
 		}
 	}

@@ -1,12 +1,12 @@
 package entity
 
 import (
-	"encoding/json"
 	"time"
+	"encoding/json"
 )
 
 const (
-	LOGResource = 0x0001
+	LOGResource = 0X0001
 )
 
 type Log struct {

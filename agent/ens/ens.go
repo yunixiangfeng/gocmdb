@@ -28,16 +28,18 @@ func (s *ENS) Start() {
 	go func() {
 		endpoint := fmt.Sprintf("%s/heartbeat/%s/", s.conf.Endpoint, s.conf.UUID)
 		for evt := range s.conf.Heartbeat {
-			response, err := req.New().Post(endpoint, req.BodyJSON(evt))
+			response, err := request.Post(endpoint, req.BodyJSON(evt), headers)
 			if err == nil {
 				result := map[string]interface{}{}
 				response.ToJSON(&result)
 				logrus.WithFields(logrus.Fields{
-					"result": result,
+					"heartbeat": evt,
+					"result":    result,
 				}).Debug("上传心跳信息成功")
 			} else {
 				logrus.WithFields(logrus.Fields{
-					"error": err,
+					"heartbeat": evt,
+					"error":     err,
 				}).Error("上传心跳信息失败")
 			}
 		}
@@ -46,37 +48,43 @@ func (s *ENS) Start() {
 	go func() {
 		endpoint := fmt.Sprintf("%s/register/%s/", s.conf.Endpoint, s.conf.UUID)
 		for evt := range s.conf.Register {
-			response, err := req.New().Post(endpoint, req.BodyJSON(evt))
+			response, err := request.Post(endpoint, req.BodyJSON(evt), headers)
 			if err == nil {
 				result := map[string]interface{}{}
 				response.ToJSON(&result)
 				logrus.WithFields(logrus.Fields{
+					"info":   evt,
 					"result": result,
 				}).Debug("注册成功")
 			} else {
 				logrus.WithFields(logrus.Fields{
+					"info":  evt,
 					"error": err,
 				}).Error("注册失败")
 			}
 		}
 	}()
+
 	go func() {
 		endpoint := fmt.Sprintf("%s/log/%s/", s.conf.Endpoint, s.conf.UUID)
 		for evt := range s.conf.Log {
-			response, err := req.New().Post(endpoint, req.BodyJSON(evt))
+			response, err := request.Post(endpoint, req.BodyJSON(evt), headers)
 			if err == nil {
 				result := map[string]interface{}{}
 				response.ToJSON(&result)
 				logrus.WithFields(logrus.Fields{
+					"log":    evt,
 					"result": result,
 				}).Debug("日志上传成功")
 			} else {
 				logrus.WithFields(logrus.Fields{
+					"log":   evt,
 					"error": err,
-				}).Error("日志上传成功")
+				}).Error("日志上传失败")
 			}
 		}
 	}()
+
 	go func() {
 		endpoint := fmt.Sprintf("%s/result/%s/", s.conf.Endpoint, s.conf.UUID)
 		for evt := range s.conf.TaskResult {

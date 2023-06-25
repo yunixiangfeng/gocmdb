@@ -1,8 +1,9 @@
 package plugins
 
 import (
-	"gocmdb/agent/config"
 	"time"
+
+	"gocmdb/agent/config"
 )
 
 type CyclePlugin interface {

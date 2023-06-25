@@ -37,9 +37,9 @@ func NewResource() Resource {
 	load, _ := json.Marshal(loadAvgStat)
 	disk, _ := json.Marshal(disks)
 	return Resource{
-		Load:        string(load),
-		CPUPrecent:  cpuPercents[0],
-		RAMPrecent:  memInfo.UsedPercent,
+		Load:       string(load),
+		CPUPrecent: cpuPercents[0],
+		RAMPrecent: memInfo.UsedPercent,
 		DiskPrecent: string(disk),
 	}
 }

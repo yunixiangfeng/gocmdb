@@ -19,7 +19,7 @@ import (
 func main() {
 
 	logrus.SetLevel(logrus.DebugLevel)
-	req.Debug = true
+	req.Debug = false
 
 	configReader := viper.New()
 	configReader.SetConfigName("agent")

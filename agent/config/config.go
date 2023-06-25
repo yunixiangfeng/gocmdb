@@ -22,10 +22,10 @@ type Config struct {
 	PID     int
 	PidFile string
 
-	Heartbeat  chan interface{}
-	Register   chan interface{}
-	Log        chan interface{}
-	Task       chan interface{}
+	Heartbeat chan interface{}
+	Register chan interface{}
+	Log chan interface{}
+	Task chan interface{}
 	TaskResult chan interface{}
 }
 
@@ -66,17 +66,17 @@ func NewConfig(configReader *viper.Viper) (*Config, error) {
 	ioutil.WriteFile(PidFile, []byte(strconv.Itoa(PID)), os.ModePerm)
 
 	return &Config{
-		Endpoint:   Endpoint,
-		Token:      Token,
-		UUID:       UUID,
-		UUIDFile:   UUIDFile,
-		LogFile:    LogFile,
-		PID:        PID,
-		PidFile:    PidFile,
-		Heartbeat:  make(chan interface{}, 64),
-		Register:   make(chan interface{}, 64),
-		Log:        make(chan interface{}, 10240),
-		Task:       make(chan interface{}, 128),
+		Endpoint: Endpoint,
+		Token: Token,
+		UUID:     UUID,
+		UUIDFile: UUIDFile,
+		LogFile:  LogFile,
+		PID:      PID,
+		PidFile:  PidFile,
+		Heartbeat: make(chan interface{}, 64),
+		Register: make(chan interface{}, 64),
+		Log: make(chan interface{}, 10240),
+		Task: make(chan interface{}, 128),
 		TaskResult: make(chan interface{}, 128),
 	}, nil
 }

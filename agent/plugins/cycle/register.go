@@ -1,9 +1,10 @@
 package cycle
 
 import (
+	"time"
+
 	"gocmdb/agent/config"
 	"gocmdb/agent/entity"
-	"time"
 )
 
 type Register struct {
@@ -18,8 +19,8 @@ func (p *Register) Name() string {
 
 func (p *Register) Init(conf *config.Config) {
 	p.conf = conf
-	// p.interval = time.Hour
-	p.interval = time.Second * 30
+	p.interval = time.Hour
+	// p.interval = time.Second * 30
 	p.nextTime = time.Now()
 }
 
