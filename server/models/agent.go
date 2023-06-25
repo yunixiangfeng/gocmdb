@@ -1,6 +1,7 @@
 package models
 
 import (
+	"encoding/json"
 	"time"
 
 	"github.com/astaxie/beego/orm"
@@ -23,7 +24,24 @@ type Agent struct {
 	CreatedTime   *time.Time `orm:"column(created_time);auto_now_add;" json:"created_time"`
 	DeletedTime   *time.Time `orm:"column(deleted_time);null;" json:"deleted_time"`
 
-	IsOnline bool `orm:"-" json:"is_onlne"`
+	IsOnline bool               `orm:"-" json:"is_online"`
+	IPList   []string           `orm:"-" json:"ip_list"`
+	Disks    map[string]float64 `orm:"-" json:"disks"`
+}
+
+func (a *Agent) Patch() {
+	if time.Since(*a.HeartbeatTime) < 5*time.Minute {
+		a.IsOnline = true
+	}
+
+	if a.IP != "" {
+		json.Unmarshal([]byte(a.IP), &a.IPList)
+	}
+
+	if a.Disk != "" {
+		json.Unmarshal([]byte(a.Disk), &a.Disks)
+	}
+
 }
 
 type AgentManager struct{}
@@ -56,7 +74,52 @@ func (m *AgentManager) CreateOrReplace(agent *Agent) (*Agent, bool, error) {
 }
 
 func (m *AgentManager) Heartbeat(uuid string) {
-	orm.NewOrm().QueryTable(&Agent{}).Filter("UUID__exact", uuid).Update(orm.Params{"HeartbeatTime": time.Now()})
+	orm.NewOrm().QueryTable(&Agent{}).Filter("UUID__exact", uuid).Update(orm.Params{"HeartbeatTime": time.Now(), "DeletedTime": nil})
+}
+
+func (m *AgentManager) Query(q string, start int64, length int) ([]*Agent, int64, int64) {
+	ormer := orm.NewOrm()
+	queryset := ormer.QueryTable(&Agent{})
+
+	condition := orm.NewCondition()
+	condition = condition.And("deleted_time__isnull", true)
+
+	total, _ := queryset.SetCond(condition).Count()
+
+	qtotal := total
+	if q != "" {
+		query := orm.NewCondition()
+		query = query.Or("hostname__icontains", q)
+		query = query.Or("ip__icontains", q)
+		query = query.Or("os__icontains", q)
+		query = query.Or("arch__icontains", q)
+		condition = condition.AndCond(query)
+
+		qtotal, _ = queryset.SetCond(condition).Count()
+	}
+	var result []*Agent
+
+	queryset.SetCond(condition).RelatedSel().Limit(length).Offset(start).All(&result)
+	for _, agent := range result {
+		agent.Patch()
+	}
+	return result, total, qtotal
+}
+
+func (m *AgentManager) DeleteById(id int) error {
+	orm.NewOrm().QueryTable(&Agent{}).Filter("Id__exact", id).Update(orm.Params{"DeletedTime": time.Now()})
+	return nil
+}
+
+func (m *AgentManager) GetStat() (int64, int64) {
+	now := time.Now()
+	onlineTime := now.Add(-5 * time.Minute)
+
+	queryset := orm.NewOrm().QueryTable(new(Agent)).Filter("deleted_time__isnull", true)
+
+	onlineCnt, _ := queryset.Filter("heartbeat_time__gte", onlineTime).Count()
+	offlineCnt, _ := queryset.Filter("heartbeat_time__lt", onlineTime).Count()
+	return onlineCnt, offlineCnt
 }
 
 var DefaultAgentManager = NewAgentManager()

@@ -1,8 +1,9 @@
 package routers
 
 import (
+	v2 "gocmdb/server/controllers/api/v2"
+
 	"github.com/astaxie/beego"
-	v2 "github.com/imsilence/gocmdb/server/controllers/api/v2"
 
 	"gocmdb/server/controllers"
 	v1 "gocmdb/server/controllers/api/v1"
@@ -11,7 +12,16 @@ import (
 
 func init() {
 	// 认证
+	beego.Router("/", &controllers.IndexController{}, "get:Index")
+
+	// 认证
 	beego.AutoRouter(&auth.AuthController{})
+
+	// Dashboard
+	beego.AutoRouter(&controllers.DashboardPageController{})
+
+	// Dashboard
+	beego.AutoRouter(&controllers.DashboardController{})
 
 	// 用户页面
 	beego.AutoRouter(&controllers.UserPageController{})
@@ -30,6 +40,12 @@ func init() {
 	beego.AutoRouter(&controllers.VirtualMachinePageController{})
 	// 云主机
 	beego.AutoRouter(&controllers.VirtualMachineController{})
+
+	// 资源使用率页面
+	beego.AutoRouter(&controllers.ResourcePageController{})
+
+	// 资源使用率
+	beego.AutoRouter(&controllers.ResourceController{})
 
 	v1Namespace := beego.NewNamespace("/v1",
 		beego.NSRouter("api/heartbeat/:uuid/", &v1.APIController{}, "*:Heartbeat"),
