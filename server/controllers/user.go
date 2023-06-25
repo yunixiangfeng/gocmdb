@@ -7,7 +7,7 @@ import (
 
 	"gocmdb/server/forms"
 
-	"github.com/beego/beego/validation"
+	"github.com/astaxie/beego/validation"
 )
 
 type UserPageController struct {

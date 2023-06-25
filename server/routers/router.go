@@ -38,8 +38,15 @@ func init() {
 
 	// 云主机页面
 	beego.AutoRouter(&controllers.VirtualMachinePageController{})
+
 	// 云主机
 	beego.AutoRouter(&controllers.VirtualMachineController{})
+
+	// 终端页面
+	beego.AutoRouter(&controllers.AgentPageController{})
+
+	// 终端
+	beego.AutoRouter(&controllers.AgentController{})
 
 	// 资源使用率页面
 	beego.AutoRouter(&controllers.ResourcePageController{})

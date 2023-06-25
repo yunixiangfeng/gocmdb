@@ -5,7 +5,7 @@ import (
 	"gocmdb/server/controllers/api"
 	"gocmdb/server/models"
 
-	"github.com/beego/beego"
+	"github.com/astaxie/beego"
 )
 
 type APIController struct {

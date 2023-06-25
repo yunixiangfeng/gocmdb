@@ -9,7 +9,7 @@ import (
 
 	"gocmdb/server/cloud"
 
-	"github.com/beego/beego/validation"
+	"github.com/astaxie/beego/validation"
 )
 
 type CloudPlatformPageController struct {

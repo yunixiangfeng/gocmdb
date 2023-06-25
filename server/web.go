@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"os"
 
-	"gocmdb/server/models"
-	_ "gocmdb/server/routers"
-	"gocmdb/server/utils"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 
+	"gocmdb/server/models"
+	"gocmdb/server/utils"
+
 	_ "gocmdb/server/cloud/plugins"
+	_ "gocmdb/server/routers"
 
 	_ "github.com/astaxie/beego/session/redis"
 )
