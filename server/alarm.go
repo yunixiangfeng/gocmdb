@@ -4,7 +4,9 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/signal"
 	"strconv"
+	"syscall"
 	"time"
 
 	"github.com/astaxie/beego"
@@ -151,38 +153,43 @@ func main() {
 	}()
 
 	// 内存使用率
-	windowTime := 5
-	ramThreshold := 10
-	ramCounter := 3
-	noticeWindowTime := 60
-	noticeCounter := int64(2)
+	go func() {
+		windowTime := 5
+		ramThreshold := 10
+		ramCounter := 3
+		noticeWindowTime := 60
+		noticeCounter := int64(2)
 
-	for now := range time.Tick(time.Minute) {
-		beego.Debug("内存使用率告警", now)
-		startTime := now.Add(-1 * time.Duration(windowTime) * time.Minute)             // 5 根据配置
-		noticeStartTime := now.Add(-1 * time.Duration(noticeWindowTime) * time.Minute) // 5 根据配置
-		var result []orm.Params
-		orm.NewOrm().Raw("SELECT uuid, count(*) as cnt from resource where deleted_time is null and created_time >= ? and ram_percent >= ? group by uuid having count(*) >= ?", startTime, ramThreshold, ramCounter).Values(&result)
-		for _, line := range result {
-			uuid, _ := line["uuid"].(string)
-			cntString, _ := line["cnt"].(string)
-			cnt, _ := strconv.Atoi(cntString)
+		for now := range time.Tick(time.Minute) {
+			beego.Debug("内存使用率告警", now)
+			startTime := now.Add(-1 * time.Duration(windowTime) * time.Minute)             // 5 根据配置
+			noticeStartTime := now.Add(-1 * time.Duration(noticeWindowTime) * time.Minute) // 5 根据配置
+			var result []orm.Params
+			orm.NewOrm().Raw("SELECT uuid, count(*) as cnt from resource where deleted_time is null and created_time >= ? and ram_percent >= ? group by uuid having count(*) >= ?", startTime, ramThreshold, ramCounter).Values(&result)
+			for _, line := range result {
+				uuid, _ := line["uuid"].(string)
+				cntString, _ := line["cnt"].(string)
+				cnt, _ := strconv.Atoi(cntString)
 
-			content := fmt.Sprintf("终端[%s]在最近%d分钟内内存使用率大于%d%%的次数为%d, 已超过%d次", uuid, windowTime, ramThreshold, cnt, ramCounter)
+				content := fmt.Sprintf("终端[%s]在最近%d分钟内内存使用率大于%d%%的次数为%d, 已超过%d次", uuid, windowTime, ramThreshold, cnt, ramCounter)
 
-			alarmCnt := models.DefaultAlarmManager.GetCountByUuidAndType(uuid, models.AlarmTypeRam, noticeStartTime)
-			if alarmCnt >= noticeCounter {
-				beego.Info(fmt.Sprintf("通知次数(%d)超过限制(%d), %s", alarmCnt, noticeCounter, content))
-				continue
+				alarmCnt := models.DefaultAlarmManager.GetCountByUuidAndType(uuid, models.AlarmTypeRam, noticeStartTime)
+				if alarmCnt >= noticeCounter {
+					beego.Info(fmt.Sprintf("通知次数(%d)超过限制(%d), %s", alarmCnt, noticeCounter, content))
+					continue
+				}
+				emailErr := emailSender.Send(to, "[CMDB]终端内存告警", content, []string{})
+
+				params := []string{uuid, strconv.Itoa(windowTime), strconv.Itoa(ramThreshold), strconv.Itoa(cnt), strconv.Itoa(ramCounter)}
+				smsErr := smsSender.Send(templateRamId, phones, params)
+
+				beego.Info("终端内存告警: ", content, ", email通知:", emailErr, ", sms通知:", smsErr)
+				models.DefaultAlarmManager.Create(uuid, models.AlarmTypeRam, content, now)
 			}
-			emailErr := emailSender.Send(to, "[CMDB]终端内存告警", content, []string{})
-
-			params := []string{uuid, strconv.Itoa(windowTime), strconv.Itoa(ramThreshold), strconv.Itoa(cnt), strconv.Itoa(ramCounter)}
-			smsErr := smsSender.Send(templateRamId, phones, params)
-
-			beego.Info("终端内存告警: ", content, ", email通知:", emailErr, ", sms通知:", smsErr)
-			models.DefaultAlarmManager.Create(uuid, models.AlarmTypeRam, content, now)
 		}
-	}
+	}()
 
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
+	<-ch
 }

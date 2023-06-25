@@ -61,3 +61,38 @@ func (c *APIController) Log() {
 	}
 	c.ServeJSON()
 }
+
+func (c *APIController) Task() {
+	c.Data["json"] = map[string]interface{}{
+		"code":   200,
+		"text":   "成功",
+		"result": models.DefaultTaskManager.GetByUuid(c.Ctx.Input.Param(":uuid")),
+	}
+	c.ServeJSON()
+}
+
+func (c *APIController) TaskResult() {
+	rt := map[string]interface{}{
+		"code":   400,
+		"text":   "",
+		"result": nil,
+	}
+
+	result := &models.Result{}
+
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, result); err == nil {
+		if err := models.DefaultTaskManager.Result(c.Ctx.Input.Param(":uuid"), result); err != nil {
+			rt["text"] = err.Error()
+		} else {
+			rt = map[string]interface{}{
+				"code":   200,
+				"text":   "成功",
+				"result": nil,
+			}
+		}
+	} else {
+		rt["text"] = err.Error()
+	}
+	c.Data["json"] = rt
+	c.ServeJSON()
+}

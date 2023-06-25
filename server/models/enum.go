@@ -16,3 +16,12 @@ const (
 	AlarmStatusDoing
 	AlarmStatusComplete
 )
+
+const (
+	TaskStatusNew = iota
+	TaskStatusCancel
+	TaskStatusScheduling
+	TaskStatusExecing
+	TaskStatusSuccess
+	TaskStatusFailure
+)

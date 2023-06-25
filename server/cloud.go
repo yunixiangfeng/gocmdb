@@ -11,6 +11,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 
 	"gocmdb/server/cloud"
+	_ "gocmdb/server/cloud/plugins"
 	"gocmdb/server/models"
 )
 

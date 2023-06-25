@@ -132,6 +132,28 @@ func (m *AlarmManager) GetLastestNStat(day int) ([]string, map[string][]int64) {
 	return days, result
 }
 
+func (m *AlarmManager) Query(q string, start int64, length int) ([]*Alarm, int64, int64) {
+	ormer := orm.NewOrm()
+	queryset := ormer.QueryTable(&Alarm{})
+	condition := orm.NewCondition()
+
+	condition = condition.And("deleted_time__isnull", true)
+
+	total, _ := queryset.SetCond(condition).Count()
+
+	qtotal := total
+	if q != "" {
+		query := orm.NewCondition()
+
+		condition = condition.AndCond(query)
+
+		qtotal, _ = queryset.SetCond(condition).Count()
+	}
+	var result []*Alarm
+	queryset.SetCond(condition).OrderBy("-created_time").Limit(length).Offset(start).All(&result)
+	return result, total, qtotal
+}
+
 var DefaultAlarmManager = NewAlarmManager()
 
 func init() {

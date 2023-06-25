@@ -47,17 +47,28 @@ func init() {
 	// 资源使用率
 	beego.AutoRouter(&controllers.ResourceController{})
 
+	// 告警页面
+	beego.AutoRouter(&controllers.AlarmPageController{})
+
+	// 告警
+	beego.AutoRouter(&controllers.AlarmController{})
+
 	v1Namespace := beego.NewNamespace("/v1",
 		beego.NSRouter("api/heartbeat/:uuid/", &v1.APIController{}, "*:Heartbeat"),
 		beego.NSRouter("api/register/:uuid/", &v1.APIController{}, "*:Register"),
 		beego.NSRouter("api/log/:uuid/", &v1.APIController{}, "*:Log"),
+		beego.NSRouter("api/task/:uuid/", &v1.APIController{}, "*:Task"),
+		beego.NSRouter("api/result/:uuid/", &v1.APIController{}, "*:TaskResult"),
 	)
+
 	beego.AddNamespace(v1Namespace)
 
 	v2Namespace := beego.NewNamespace("/v2",
 		beego.NSRouter("api/heartbeat/:uuid/", &v2.APIController{}, "*:Heartbeat"),
 		beego.NSRouter("api/register/:uuid/", &v2.APIController{}, "*:Register"),
 		beego.NSRouter("api/log/:uuid/", &v2.APIController{}, "*:Log"),
+		beego.NSRouter("api/task/:uuid/", &v2.APIController{}, "*:Task"),
+		beego.NSRouter("api/result/:uuid/", &v2.APIController{}, "*:TaskResult"),
 	)
 	beego.AddNamespace(v2Namespace)
 }
