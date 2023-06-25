@@ -51,10 +51,65 @@ type ResourceManager struct{}
 func NewResourceManager() *ResourceManager {
 	return &ResourceManager{}
 }
+
 func (m *ResourceManager) Create(log *Log, resource *Resource) {
 	resource.UUID = log.UUID
 	resource.Time = log.Time
 	orm.NewOrm().Insert(resource)
+}
+
+func (m *ResourceManager) Query(q string, start int64, length int) ([]*Resource, int64, int64) {
+	ormer := orm.NewOrm()
+	queryset := ormer.QueryTable(&Resource{})
+	condition := orm.NewCondition()
+
+	condition = condition.And("deleted_time__isnull", true)
+
+	total, _ := queryset.SetCond(condition).Count()
+
+	qtotal := total
+	if q != "" {
+		query := orm.NewCondition()
+
+		condition = condition.AndCond(query)
+
+		qtotal, _ = queryset.SetCond(condition).Count()
+	}
+	var result []*Resource
+	queryset.SetCond(condition).OrderBy("-created_time").Limit(length).Offset(start).All(&result)
+	return result, total, qtotal
+}
+
+func (m *ResourceManager) Trend(uuid string) []*Resource {
+	endTime := time.Now()
+	startTime := endTime.Add(-1 * time.Hour)
+
+	condition := orm.NewCondition()
+	condition = condition.And("deleted_time__isnull", true)
+	condition = condition.And("uuid__exact", uuid)
+	condition = condition.And("created_time__gte", startTime)
+
+	var items []*Resource
+	orm.NewOrm().QueryTable(new(Resource)).SetCond(condition).OrderBy("created_time").All(&items)
+
+	var itemMap map[string]*Resource = make(map[string]*Resource)
+	for _, item := range items {
+		itemMap[item.CreatedTime.Format("2006-01-02 15:04")] = item
+	}
+
+	var result []*Resource = make([]*Resource, 0, len(items))
+
+	for startTime.Before(endTime) {
+		key := startTime.Format("2006-01-02 15:04")
+		if item, ok := itemMap[key]; ok {
+			result = append(result, item)
+		} else {
+			result = append(result, &Resource{CreatedTime: &startTime})
+		}
+		startTime = startTime.Add(time.Minute)
+	}
+
+	return result
 }
 
 var DefaultLogManager = NewLogManager()

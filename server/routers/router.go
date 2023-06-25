@@ -2,6 +2,7 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
+	v2 "github.com/imsilence/gocmdb/server/controllers/api/v2"
 
 	"gocmdb/server/controllers"
 	v1 "gocmdb/server/controllers/api/v1"
@@ -36,4 +37,11 @@ func init() {
 		beego.NSRouter("api/log/:uuid/", &v1.APIController{}, "*:Log"),
 	)
 	beego.AddNamespace(v1Namespace)
+
+	v2Namespace := beego.NewNamespace("/v2",
+		beego.NSRouter("api/heartbeat/:uuid/", &v2.APIController{}, "*:Heartbeat"),
+		beego.NSRouter("api/register/:uuid/", &v2.APIController{}, "*:Register"),
+		beego.NSRouter("api/log/:uuid/", &v2.APIController{}, "*:Log"),
+	)
+	beego.AddNamespace(v2Namespace)
 }
