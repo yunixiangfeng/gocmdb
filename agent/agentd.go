@@ -5,7 +5,9 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/imroc/req"
 	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 
 	"gocmdb/agent/config"
 	"gocmdb/agent/ens"
@@ -15,8 +17,22 @@ import (
 )
 
 func main() {
+
 	logrus.SetLevel(logrus.DebugLevel)
-	gconf, err := config.NewConfig()
+	req.Debug = true
+
+	configReader := viper.New()
+	configReader.SetConfigName("agent")
+	configReader.SetConfigType("yaml")
+	configReader.AddConfigPath("etc/")
+
+	err := configReader.ReadInConfig()
+	if err != nil {
+		logrus.Error("读取配置出错:", err)
+		os.Exit(-1)
+	}
+
+	gconf, err := config.NewConfig(configReader)
 	if err != nil {
 		logrus.Error("读取配置出错:", err)
 		os.Exit(-1)

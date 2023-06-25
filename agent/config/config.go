@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
+	"github.com/spf13/viper"
 )
 
 type Config struct {
@@ -26,10 +27,27 @@ type Config struct {
 	Log       chan interface{}
 }
 
-func NewConfig() (*Config, error) {
-	UUIDFile := "agentd.uuid"
-	PidFile := "agentd.pid"
-	LogFile := "logs/agent.log"
+func NewConfig(configReader *viper.Viper) (*Config, error) {
+	UUIDFile := configReader.GetString("uuidfile")
+	if UUIDFile == "" {
+		UUIDFile = "agentd.uuid"
+	}
+
+	PidFile := configReader.GetString("pidfile")
+	if PidFile == "" {
+		PidFile = "agentd.pid"
+	}
+
+	LogFile := configReader.GetString("logfile")
+	if LogFile == "" {
+		LogFile = "logs/agent.log"
+	}
+	Endpoint := configReader.GetString("endpoint")
+	if Endpoint == "" {
+		Endpoint = "http://localhost:8888/v1/api"
+	}
+
+	Token := configReader.GetString("token")
 
 	UUID := ""
 	if cxt, err := ioutil.ReadFile(UUIDFile); err == nil {
@@ -46,7 +64,8 @@ func NewConfig() (*Config, error) {
 	ioutil.WriteFile(PidFile, []byte(strconv.Itoa(PID)), os.ModePerm)
 
 	return &Config{
-		Endpoint:  "http://localhost:8888/v1/api",
+		Endpoint:  Endpoint,
+		Token:     Token,
 		UUID:      UUID,
 		UUIDFile:  UUIDFile,
 		LogFile:   LogFile,
