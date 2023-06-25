@@ -12,3 +12,9 @@ type CyclePlugin interface {
 	Call() (interface{}, error)
 	Pipline() chan interface{}
 }
+
+type TaskPlugin interface {
+	Name() string
+	Init(*config.Config)
+	Call(params string) (interface{}, error)
+}
